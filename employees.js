@@ -1,15 +1,12 @@
 export class EmployeeStatistics {
     constructor(employees) {
         this.employees = employees;
-        if (!employees) {
-            throw new Error("A dolgozók megadása kötelező");
-        }
-        if (employees.length === 0) {
+        if (this.employees.length === 0) {
             throw new Error("Nincsenek dolgozók az adatbázisban");
         }
     }
 
-    getAverageSalary() {
+    getAverageSalary() {    
         let sum = 0;
         this.employees.forEach(employee => sum += employee.salary);
         return sum / this.employees.length;
@@ -17,8 +14,7 @@ export class EmployeeStatistics {
     }
 
     getMaxSalary() {
-        return Math.max(...this.employees.map(employee => employee.salary));
-
+    return Math.max(...this.employees.map(employee => employee.salary));
     }
 
     getMinSalary() {

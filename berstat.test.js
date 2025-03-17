@@ -14,6 +14,8 @@ const employees2 = [
     { name: 'Jerry Summer', age: 18, salary: 30900 },
     { name: 'Jack Daniels', age: 22, salary: 40100 }
 ];
+const employees3 = [];
+
 
 describe("EmployeeStatistics osztály tesztelése", () => {
     test("Átlagfizetés helyes számítása", () => {
@@ -21,6 +23,8 @@ describe("EmployeeStatistics osztály tesztelése", () => {
         expect(stats.getAverageSalary()).toBe(3875);
         const stats2 = new EmployeeStatistics(employees2);
         expect(stats2.getAverageSalary()).toBe(40506);
+        
+        
 
     });
 
@@ -29,6 +33,9 @@ describe("EmployeeStatistics osztály tesztelése", () => {
         expect(stats.getMaxSalary()).toBe(5000);
         const stats2 = new EmployeeStatistics(employees2);
         expect(stats2.getMaxSalary()).toBe(50030);
+        
+
+
 
     });
 
@@ -37,6 +44,9 @@ describe("EmployeeStatistics osztály tesztelése", () => {
         expect(stats.getMinSalary()).toBe(3000);
         const stats2 = new EmployeeStatistics(employees2);
         expect(stats2.getMinSalary()).toBe(30900);
+        
+
+
 
     });
 
@@ -45,6 +55,8 @@ describe("EmployeeStatistics osztály tesztelése", () => {
         expect(stats.getHighestPaidEmployee()).toBe('James Smith');
         const stats2 = new EmployeeStatistics(employees2);
         expect(stats2.getHighestPaidEmployee()).toBe('James Smith');
+        
+
     }
     );
     test("Visszaadja a dolgozók átlagéletkorát.", () => {
@@ -52,6 +64,12 @@ describe("EmployeeStatistics osztály tesztelése", () => {
         expect(stats.getAverageAge()).toBe(30.5);
         const stats2 = new EmployeeStatistics(employees2);
         expect(stats2.getAverageAge()).toBe(37.6);
+        
+
+    }
+    );
+    test("Üres tömb esetén hibát dob", () => {
+        expect(() => new EmployeeStatistics(employees3)).toThrowError("Nincsenek dolgozók az adatbázisban");
     }
     );
 });
